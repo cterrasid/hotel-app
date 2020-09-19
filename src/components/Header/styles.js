@@ -9,7 +9,7 @@ export const HeaderStyled = styled.header`
     var(--color_3) 18%
   );
   color: var(--grey-dark);
-  height: 35vh;
+  height: 25vh;
 `
 
 export const Navigation = styled.nav`
@@ -32,6 +32,10 @@ export const Navigation = styled.nav`
     :hover {
       text-decoration: line-through;
       transition: 0.5s ease;
+    }
+
+    ${breakpoints.desktop} {
+      width: 9rem;
     }
   }
 `

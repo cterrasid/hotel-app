@@ -2,7 +2,8 @@ import styled from "@emotion/styled"
 
 export const breakpoints = {
   tablet: "@media screen and (min-width: 768px)",
-  laptop: "@media screen and (min-width: 1440px)",
+  laptop: "@media screen and (min-width: 1024px)",
+  desktop: "@media screen and (min-width: 1440px)",
 }
 
 export const Wrapper = styled.div`
@@ -29,19 +30,29 @@ export const Title = styled.hgroup`
   flex-direction: column;
   height: 100%;
   justify-content: center;
+  text-align: ${props => props.textAlign};
+  margin-bottom: ${props => (props.isMainTitle ? 0 : 20)}px;
 
   h1 {
-    font-size: 30px;
+    font-size: ${props => (props.isMainTitle ? 18 : 14)}px;
+    text-transform: ${props => (props.isMainTitle ? "none" : "uppercase")};
+
+    ${breakpoints.tablet} {
+      font-size: ${props => (props.isMainTitle ? 19 : 15)}px;
+    }
+
+    ${breakpoints.laptop} {
+      font-size: ${props => (props.isMainTitle ? 24 : 16)}px;
+    }
   }
 
   h2 {
-    font-size: 18px;
+    font-size: ${props => (props.isMainTitle ? 12 : 10)}px;
     font-style: italic;
     font-weight: normal;
-  }
 
-  :not(h1),
-  :not(h2) {
-    font-size: 16px;
+    ${breakpoints.laptop} {
+      font-size: ${props => (props.isMainTitle ? 14 : 12)}px;
+    }
   }
 `
